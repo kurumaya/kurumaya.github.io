@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Objective-C | My Octopress Blog]]></title>
+  <link href="http://kurumaya.github.io/blog/categories/objective-c/atom.xml" rel="self"/>
+  <link href="http://kurumaya.github.io/"/>
+  <updated>2013-05-06T15:53:21+09:00</updated>
+  <id>http://kurumaya.github.io/</id>
+  <author>
+    <name><![CDATA[kurumaya]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[iOS]UIWebviewへJSONでデータを取ってくる計画]]></title>
+    <link href="http://kurumaya.github.io/blog/2013/05/06/json-to-ios/"/>
+    <updated>2013-05-06T12:59:00+09:00</updated>
+    <id>http://kurumaya.github.io/blog/2013/05/06/json-to-ios</id>
+    <content type="html"><![CDATA[<p>Twitterなどの脈絡がなくても取れるものならこういう感じ。</p>
+
+<pre><code>NSURL *httpDataUrl2 = [NSURL URLWithString:apiUrlJson];
+NSURLRequest *request = [NSURLRequest requestWithURL:httpDataUrl2];
+NSData *json_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:json_data options:NSJSONReadingAllowFragments error:nil];
+</code></pre>
+
+<p>しかし今回はJSONで呼び出す側がセッションを使っているため、単純にURLで指定して取る方式は使えない。<br/>
+Webviewを動かしJavascriptを介して取ってくる。</p>
+
+<pre><code>[webView stringByEvaluatingJavaScriptFromString:@"alert('call from native');"];
+</code></pre>
+
+<p>ほんとにこれでいけるのか。<br/>
+だめだったら素直にIDなんかを保持しといて、引数に渡す方式のを実装しとかないといけない。<br/>
+その場合はメモリにためればいいのでそんなに難しくないはず。</p>
+
+<ul>
+<li><a href="http://d.hatena.ne.jp/ntaku/20111103/1320288456">UIWebViewでWebとネイティブを相互連携させる方法について</a></li>
+<li><a href="http://stackoverflow.com/questions/9796213/from-javascript-to-objective-c-with-json">From JavaScript to Objective-C with JSON</a></li>
+<li><a href="http://d.hatena.ne.jp/language_and_engineering/20120713/p1">AndroidやiOSの「ハイブリッドアプリ」で，JavaScriptとネイティブ・コードが連携する仕組みを図解　（おまけ：HTML側で施すべき，クロスプラットフォーム対策）</a></li>
+<li><a href="http://www.milkstand.net/fsgarage/archives/001534.html">iPhoneとWebサービスの連携手法</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

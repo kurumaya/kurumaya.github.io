@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title>Octopressのrake previewやrake generateが終わらない - My Octopress Blog</title>
   <meta name="author" content="kurumaya">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kurumaya.github.io">
+  <link rel="canonical" href="http://kurumaya.github.io/blog/2013/05/06/octopress-bundle-directory-watcher">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -64,15 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/06/octopress-bundle-directory-watcher/">Octopressのrake Previewやrake Generateが終わらない</a></h1>
+      <h1 class="entry-title">Octopressのrake Previewやrake Generateが終わらない</h1>
     
     
       <p class="meta">
@@ -95,7 +92,7 @@
   </header>
 
 
-  <div class="entry-content"><h3>bundle updateの罠</h3>
+<div class="entry-content"><h3>bundle updateの罠</h3>
 
 <p>新しいものはいいものだ、とばかりにかけましたら、rake generateなどが永遠を約束する事態に。<br/>
 ぐぐったところdirectory_watcherが1.5.1だとよろしくないようです。</p>
@@ -176,82 +173,16 @@ Using bundler (1.3.5)
 Your bundle is updated!
 </code></pre>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/06/json-to-ios/">[iOS]UIWebviewへJSONでデータを取ってくる計画</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">kurumaya</span></span>
 
-<time datetime="2013-05-06T12:59:00+09:00" pubdate data-updated="true">May 6<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Twitterなどの脈絡がなくても取れるものならこういう感じ。</p>
-
-<pre><code>NSURL *httpDataUrl2 = [NSURL URLWithString:apiUrlJson];
-NSURLRequest *request = [NSURLRequest requestWithURL:httpDataUrl2];
-NSData *json_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:json_data options:NSJSONReadingAllowFragments error:nil];
-</code></pre>
-
-<p>しかし今回はJSONで呼び出す側がセッションを使っているため、単純にURLで指定して取る方式は使えない。<br/>
-Webviewを動かしJavascriptを介して取ってくる。</p>
-
-<pre><code>[webView stringByEvaluatingJavaScriptFromString:@"alert('call from native');"];
-</code></pre>
-
-<p>ほんとにこれでいけるのか。<br/>
-だめだったら素直にIDなんかを保持しといて、引数に渡す方式のを実装しとかないといけない。<br/>
-その場合はメモリにためればいいのでそんなに難しくないはず。</p>
-
-<ul>
-<li><a href="http://d.hatena.ne.jp/ntaku/20111103/1320288456">UIWebViewでWebとネイティブを相互連携させる方法について</a></li>
-<li><a href="http://stackoverflow.com/questions/9796213/from-javascript-to-objective-c-with-json">From JavaScript to Objective-C with JSON</a></li>
-<li><a href="http://d.hatena.ne.jp/language_and_engineering/20120713/p1">AndroidやiOSの「ハイブリッドアプリ」で，JavaScriptとネイティブ・コードが連携する仕組みを図解　（おまけ：HTML側で施すべき，クロスプラットフォーム対策）</a></li>
-<li><a href="http://www.milkstand.net/fsgarage/archives/001534.html">iPhoneとWebサービスの連携手法</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/05/test-post/">Test Post</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -263,67 +194,38 @@ Webviewを動かしJavascriptを介して取ってくる。</p>
   
 
 
-<time datetime="2013-05-05T23:48:00+09:00" pubdate data-updated="true">May 5<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-05-06T15:23:00+09:00" pubdate data-updated="true">May 6<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h3>Hello Octopress</h3>
-
-<ul>
-<li><a href="http://rcmdnk.github.io/blog/2013/03/07/setup-octopress/">GitHub pages + Octopressの導入</a></li>
-<li><a href="http://blog.glidenote.com/blog/2011/11/07/install-octopress-on-github/">GithubとOctopressでモダンな技術系ブログを作ってみる</a></li>
-</ul>
-
-
-<p>このあたりを参考に作ってみました。作ったというか設定しただけですが。</p>
-
-<p><code>$ rake new_post["test post"]</code>などとページを作って、編集すればブログエントリがひとつできあがる。<br/>
-<code>rake preview</code>でサーバを上げて、変更などを捕捉してくれる。<br/>
-だけどどこにもないような。と思ったら、_config.ymlでエラー発生していた。<br/>
-コロンのあとには半角スペースがないとだめ。<br/>
-ちゃんとやれば1文字変えただけでも反映される。</p>
-
-<h3>最初のpublish</h3>
-
-<p><code>$ rake setup_github_pages</code> <br/>
-でリモートリポジトリを設定して、<br/>
-<code>$ rake generate</code><br/>
-<code>$ rake deploy</code><br/>
-これでよしなにやってくれる……はずなのだけれど、</p>
-
-<pre><code>Warning: Permanently added 'github.com,204.232.175.90' (RSA) to the list of known hosts.  
-Permission denied (publickey).  
-fatal: Could not read from remote repository.  
-</code></pre>
-
-<p>鍵の設定が必要になってしまった。むむむ。<br/>
-<code>vi ~/.ssh/config</code>で<code>IdentityFile ~/.ssh/id_rsa</code>など入れてなんとか突破。</p>
-
-<ul>
-<li><a href="http://www.creativegear.jp/2012/07/29/githubdeny/">GitHubへPushした時に Permission Denied で弾かれた時の対処</a></li>
-<li><a href="http://d.hatena.ne.jp/MIZUNO/20080705/1215238138">複数の公開鍵を使い分ける</a></li>
-</ul>
-
-
-<h3>Markdown</h3>
-
-<p><a href="http://blog.2310.net/archives/6">Markdown日本語訳</a></p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kurumaya.github.io/blog/2013/05/06/octopress-bundle-directory-watcher/" data-via="" data-counturl="http://kurumaya.github.io/blog/2013/05/06/octopress-bundle-directory-watcher/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/06/json-to-ios/" title="Previous Post: [iOS]UIWebviewへJSONでデータを取ってくる計画">&laquo; [iOS]UIWebviewへJSONでデータを取ってくる計画</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -348,7 +250,7 @@ fatal: Could not read from remote repository.
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/kurumaya">@kurumaya</a> on GitHub
@@ -380,6 +282,7 @@ fatal: Could not read from remote repository.
 
   
 </aside>
+
 
     </div>
   </div>

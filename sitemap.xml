@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://kurumaya.github.io/blog/2013/05/05/test-post/</loc>
+        <lastmod>2013-05-06T14:11:52+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kurumaya.github.io/blog/2013/05/06/json-to-ios/</loc>
+        <lastmod>2013-05-06T14:27:36+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kurumaya.github.io/blog/2013/05/06/octopress-bundle-directory-watcher/</loc>
+        <lastmod>2013-05-06T15:40:27+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kurumaya.github.io/blog/archives/</loc>
+        <lastmod>2013-05-06T15:40:27+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kurumaya.github.io/</loc>
+        <lastmod>2013-05-06T15:40:27+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kurumaya.github.io/robots.txt</loc>
+        <lastmod>2013-05-05T23:39:53+09:00</lastmod>
+    </url>
+</urlset>
