@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title></title>
   <meta name="author" content="kurumaya">
 
   
@@ -22,7 +22,7 @@
   <link rel="canonical" href="http://kurumaya.github.io">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -37,7 +37,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/"></a></h1>
   
     <h2>七転八倒</h2>
   
@@ -227,6 +227,23 @@ Webviewを動かしJavascriptを介して取ってくる。</p>
 <p>ほんとにこれでいけるのか。<br/>
 だめだったら素直にIDなんかを保持しといて、引数に渡す方式のを実装しとかないといけない。<br/>
 その場合はメモリにためればいいのでそんなに難しくないはず。</p>
+
+<h3>05/16追記</h3>
+
+<p>単純に呼び出す箇所が悪いだけだった。</p>
+
+<pre><code>- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+</code></pre>
+
+<p>ここで確かめていたので取れない。遷移直前に呼ばれるためrequestにセッションがちゃんと入ってなかったりする。</p>
+
+<pre><code>- (void) webViewDidFinishLoad:(UIWebView *)webView
+</code></pre>
+
+<p>これで問題無し。<br/>
+Javascriptで実装する場合、Viewに依存することになってよくない。</p>
+
+<h3>参考</h3>
 
 <ul>
 <li><a href="http://d.hatena.ne.jp/ntaku/20111103/1320288456">UIWebViewでWebとネイティブを相互連携させる方法について</a></li>

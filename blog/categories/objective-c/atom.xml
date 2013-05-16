@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Objective-C | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Objective-C | ]]></title>
   <link href="http://kurumaya.github.io/blog/categories/objective-c/atom.xml" rel="self"/>
   <link href="http://kurumaya.github.io/"/>
-  <updated>2013-05-06T15:53:21+09:00</updated>
+  <updated>2013-05-16T23:46:50+09:00</updated>
   <id>http://kurumaya.github.io/</id>
   <author>
     <name><![CDATA[kurumaya]]></name>
@@ -35,6 +35,23 @@ Webviewを動かしJavascriptを介して取ってくる。</p>
 <p>ほんとにこれでいけるのか。<br/>
 だめだったら素直にIDなんかを保持しといて、引数に渡す方式のを実装しとかないといけない。<br/>
 その場合はメモリにためればいいのでそんなに難しくないはず。</p>
+
+<h3>05/16追記</h3>
+
+<p>単純に呼び出す箇所が悪いだけだった。</p>
+
+<pre><code>- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+</code></pre>
+
+<p>ここで確かめていたので取れない。遷移直前に呼ばれるためrequestにセッションがちゃんと入ってなかったりする。</p>
+
+<pre><code>- (void) webViewDidFinishLoad:(UIWebView *)webView
+</code></pre>
+
+<p>これで問題無し。<br/>
+Javascriptで実装する場合、Viewに依存することになってよくない。</p>
+
+<h3>参考</h3>
 
 <ul>
 <li><a href="http://d.hatena.ne.jp/ntaku/20111103/1320288456">UIWebViewでWebとネイティブを相互連携させる方法について</a></li>
